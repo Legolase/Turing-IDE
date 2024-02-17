@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     speed.setFont(QFont{"Consolas", 15});
     speed_slider.setRange(0, 1000);
     speed_slider.setSliderPosition(prg.speed);
+    set_label_speed();
 //===
     logs.setReadOnly(true);
 
@@ -144,8 +145,8 @@ void MainWindow::move_speed(int val)
 
 void MainWindow::set_label_speed()
 {
-    static const QString ping("Ping: ");
-    speed.setText(ping + QString::number(speed_slider.value()));
+    static const QString stepTime("Step: ");
+    speed.setText(stepTime + QString::number(speed_slider.value()) + "ms");
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event) noexcept
